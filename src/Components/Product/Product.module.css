@@ -1,0 +1,77 @@
+.product {
+  list-style: none;
+  margin: 10px 0;
+  background-color: #f0cbf4;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 20px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  font-size: 18px;
+}
+
+.product ul {
+  display: flex;
+  list-style: none;
+}
+
+.product ul li {
+  margin-right: 20px;
+}
+
+.product ul li strong {
+  margin-right: 5px;
+}
+
+.product .btn {
+  font-size: 16px;
+  border: none;
+  color: #fff;
+  padding: 1px 20px 4px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.product .delete {
+  background-color: red;
+}
+
+.product .increment {
+  background-color: blue;
+}
+
+.product .dicrement {
+  background-color: purple;
+}
+
+.product .btnBox {
+  display: flex;
+}
+
+.product .btnBox input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #333;
+}
+
+.product span.quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  color: purple;
+  border-radius: 50px;
+  margin: 0 10px;
+}
+
+.product .remove {
+  background-color: crimson;
+  padding: 4px 17px;
+  font-size: 14px;
+}
