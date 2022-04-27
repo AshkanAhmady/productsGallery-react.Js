@@ -38,3 +38,28 @@ nav .count {
 nav .noneCount {
   display: none;
 }
+
+@media (max-width: 950px) {
+  h1,
+  h2 {
+    font-size: 1.5rem;
+  }
+  p,
+  strong,
+  li,
+  span,
+  button,
+  input,
+  select {
+    font-size: 0.9rem !important;
+  }
+  .navBar .cartIcon {
+    font-size: 1.3rem !important;
+  }
+}
+
+@media (max-width: 830px) {
+  .navBar {
+    width: 100%;
+  }
+}

@@ -7,12 +7,11 @@ const Product = ({ product, dicrement, increment, onDelete }) => {
     <div className={ProductStyles.product}>
       <ul>
         <li>
-          <strong>Product name:</strong>
+          <strong>Name:</strong>
           {product.title}
         </li>
         <li>
-          <strong>Product price:</strong>
-          {product.price}
+          <strong>Price:</strong>${product.price}
         </li>
       </ul>
 

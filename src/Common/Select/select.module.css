@@ -11,3 +11,26 @@
 .select {
   width: 15rem;
 }
+
+@media (max-width: 720px) {
+  .selectContainer {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .select {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 550px) {
+  .select {
+    width: 70%;
+  }
+}
+
+@media (max-width: 370px) {
+  .select {
+    width: 65%;
+  }
+}

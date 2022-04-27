@@ -42,12 +42,13 @@ const Filter = () => {
 
   return (
     <div className={Styles.container}>
-      <Search filter={filter} />
+      <Search className={Styles.search} filter={filter} />
       <div>
-        <h2>filter products</h2>
+        <h2 className={Styles.filterTitle}>filter products</h2>
         <div className={Styles.filterBox}>
           <SelectComponent
-            title="Filter By Size:"
+            className={Styles.select}
+            title="Filter By Size :"
             value={filter}
             onChange={filterHandler}
             options={filterOptions}
@@ -55,7 +56,7 @@ const Filter = () => {
         </div>
         <div className={Styles.sortBox}>
           <SelectComponent
-            title="Sort By Price:"
+            title="Sort By Price :"
             value={sort}
             onChange={sortHandler}
             options={sortOptions}

@@ -12,3 +12,9 @@
   border: 1px solid #ccc;
   width: 300px;
 }
+
+@media (max-width: 720px) {
+  .searchContainer {
+    margin: 10px;
+  }
+}
