@@ -1,5 +1,3 @@
-import React from "react";
-
 import HookProductList from "./Components/ProductList/HookProductList";
 import AppStyles from "./App.module.css";
 import NavBar from "./Components/nav/navBar";
