@@ -1,9 +1,10 @@
+import { ComponentProps } from "react";
 import Styles from "./select.module.css";
 import Select from "react-select";
 
 type SelectPropsType = {
   title: string;
-} & React.ComponentProps<"select">;
+} & ComponentProps<typeof Select>;
 
 // Pass All Objects In Props With ((rest operator))
 // props => title, value, onChange, options
