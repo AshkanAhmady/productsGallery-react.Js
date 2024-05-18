@@ -19,9 +19,6 @@ const HookProductList = () => {
               product={product}
               key={product.id}
               onDelete={() => dispatch({ type: "remove", id: product.id })}
-              change={(e) =>
-                dispatch({ type: "edit", id: product.id, event: e })
-              }
             />
           );
         })}
