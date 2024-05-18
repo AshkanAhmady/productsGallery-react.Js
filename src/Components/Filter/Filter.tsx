@@ -47,7 +47,6 @@ const Filter = () => {
         <h2 className={Styles.filterTitle}>filter products</h2>
         <div className={Styles.filterBox}>
           <SelectComponent
-            className={Styles.select}
             title="Filter By Size :"
             value={filter}
             onChange={filterHandler}
