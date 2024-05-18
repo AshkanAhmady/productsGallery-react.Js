@@ -1,5 +1,7 @@
+// export type SizesType = "S" | "M" | "L" | "X" | "XL" | "XXL"
+
 export type ProductType = {
-    availableSizes: 'X' | 'L' | 'XL' | 'XXL'
+    availableSizes: string[]
     description: string
     id: number;
     isFreeShipping: boolean
@@ -9,3 +11,10 @@ export type ProductType = {
     title: string
 }
 
+export type FilterOptionType = {
+    value: string;
+    label: string
+}
+
+export type SortOptionType = { value: "highest"; label: "highest" } |
+{ value: "lowest"; label: "lowest" }
