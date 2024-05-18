@@ -1,8 +1,16 @@
+import { ProductType } from "../../types";
 import ProductStyles from "./Product.module.css";
 import { FaTrashAlt } from "react-icons/fa";
 
+type ProductProps = {
+  product: ProductType;
+  dicrement: () => void;
+  increment: () => void;
+  onDelete: () => void;
+};
+
 // object distructuring
-const Product = ({ product, dicrement, increment, onDelete }) => {
+const Product = ({ product, dicrement, increment, onDelete }: ProductProps) => {
   return (
     <div className={ProductStyles.product}>
       <ul>

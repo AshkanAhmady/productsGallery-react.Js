@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Styles from "./ProductList.module.css";
 import Product from "../Product/Product";
 import { useProducts, useProductsActions } from "../Providers/ProductProvider";
@@ -15,10 +14,6 @@ const HookProductList = () => {
         {products.map((product) => {
           return (
             <Product
-              // name={product.name}
-              // price={product.price}
-              // quantity={product.quantity}
-              // به جای سه تای بالایی این پایینی رو مینویسیم
               increment={() => dispatch({ type: "increment", id: product.id })}
               dicrement={() => dispatch({ type: "decrement", id: product.id })}
               product={product}
