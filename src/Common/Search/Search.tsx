@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useProductsActions } from "../../Components/Providers/ProductProvider";
 import styles from "./Search.module.css";
+import { FilterOptionType } from "../../types";
 
-const Search = ({ filter }) => {
+const Search = ({ filter }: { filter: FilterOptionType }) => {
   const [value, setValue] = useState("");
   const dispatch = useProductsActions();
 
-  const changeHandler = (e) => {
+  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     // همزمان با انجام عملیات جستجو باید فیلتر هم اعمال بشه
     // یعنی زمانی که فیلتر روی محصولات اعمال شده هم باید بتونیم سرچ کنیم
     dispatch({ type: "filter", selectedOption: filter });

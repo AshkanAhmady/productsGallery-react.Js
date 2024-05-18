@@ -1,15 +1,46 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useReducer,
-  useState,
-} from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import { productsData } from "../../db/Products";
 import _ from "lodash";
+import { FilterOptionType, ProductType, SortOptionType } from "../../types";
 
-const ProductContext = createContext();
-const ProductContextDispatcher = createContext();
+type ProductProviderProps = {
+  children: React.ReactNode;
+};
+
+type ProductContextType = ProductType[];
+
+type UpdateProductAction = {
+  type: "increment" | "decrement" | "remove";
+  id: number;
+};
+
+type SortProductAction = {
+  type: "sort";
+  selectedOption: SortOptionType;
+};
+
+type FilterProductAction = {
+  type: "filter";
+  selectedOption: FilterOptionType;
+};
+
+type SearchProductAction = {
+  type: "search";
+  event: EventTarget & HTMLInputElement;
+};
+
+type Action =
+  | UpdateProductAction
+  | SortProductAction
+  | FilterProductAction
+  | SearchProductAction;
+
+type ProductDispatchContextType = React.Dispatch<Action>;
+
+const ProductContext = createContext<ProductContextType | []>([]);
+const ProductContextDispatcher = createContext(
+  {} as ProductDispatchContextType
+);
 
 // const initialState = [
 //   // اطلاعاتی که از دیتابیس مسان خودشون آیدی دارن
@@ -18,14 +49,14 @@ const ProductContextDispatcher = createContext();
 //   { name: "marker", price: "15$", id: 3, quantity: 3 },
 // ];
 
-const reducer = (state, action) => {
+const reducer = (state: ProductType[], action: Action) => {
   switch (action.type) {
     case "increment": {
       // نباید مستقیما استیت رو آپدیت کنیم
       // کمک بگیریم setState برای آپدیت کردن استیت فقط باید از
       // mutate state: مستقیم آپدیت کردن استیت
       // 1.find index
-      let index = state.findIndex((item) => item.id == action.id);
+      let index = state.findIndex((item) => item.id === action.id);
       // 2.clone of object
       let product = { ...state[index] };
       // 3.update object
@@ -37,12 +68,12 @@ const reducer = (state, action) => {
       return cloneProducts;
     }
     case "decrement": {
-      let index = state.findIndex((item) => item.id == action.id);
+      let index = state.findIndex((item) => item.id === action.id);
       let product = { ...state[index] };
       product.quantity--;
 
       let cloneProducts = [...state];
-      if (product.quantity == 0) {
+      if (product.quantity === 0) {
         let newProducts = cloneProducts.filter((item) => item.id !== action.id);
         return newProducts;
       } else {
@@ -81,7 +112,7 @@ const reducer = (state, action) => {
     }
     case "search": {
       let value = action.event.value;
-      if (value == "") {
+      if (value === "") {
         return state;
       } else {
         let searchedProducts = state.filter((item) => {
@@ -91,13 +122,12 @@ const reducer = (state, action) => {
         return searchedProducts;
       }
     }
-
     default:
       return state;
   }
 };
 
-const ProductProvider = ({ children }) => {
+const ProductProvider: React.FC<ProductProviderProps> = ({ children }) => {
   const [products, dispatch] = useReducer(reducer, productsData);
 
   return (

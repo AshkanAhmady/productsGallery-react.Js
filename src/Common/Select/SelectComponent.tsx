@@ -5,7 +5,7 @@ import Select from "react-select";
 // props => title, value, onChange, options
 //       ----> ({title, ...rest})
 //       ----> ...rest => value, onChange, options
-const SelectComponent = ({ title, ...rest }) => {
+const SelectComponent = ({ title, ...rest }: { title: string }) => {
   return (
     <div className={Styles.selectContainer}>
       <span>{title}</span>
